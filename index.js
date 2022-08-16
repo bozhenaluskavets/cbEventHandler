@@ -1,10 +1,12 @@
 const eventHandler = cb => {
-    for (let event = 1; event <= cb; event++) {
-        setTimeout( () => {
-            console.log('event => ', event)
-        }, event * 3000)
-    }
-}
+  let event = 1;
+  setInterval(() => {
+    cb(event++);
+  }, 3000);
+};
 
-eventHandler(10)
-    
+eventHandler(event => {
+  console.log('event => ', event);
+})
+
+
